@@ -6,7 +6,8 @@
 
 <p align="center">
   Créez vos thèmes PS4 dans un éditeur sombre et moderne :<br>
-  fonds, icônes, sons et couleurs, avec l’aperçu en direct de l’écran d’accueil et de l’écran des fonctions.
+  fonds, icônes, sons et couleurs, avec l’aperçu en direct de l’écran d’accueil et de l’écran des fonctions,<br>
+  puis fabriquez le paquet <code>.pkg</code> du thème, prêt à installer sur la console.
 </p>
 
 <p align="center">
@@ -23,6 +24,7 @@
 - [Configuration requise](#configuration-requise)
 - [Installation](#installation)
 - [Utilisation](#utilisation)
+- [Installer un thème sur la PS4](#installer-un-thème-sur-la-ps4)
 - [Menus et raccourcis](#menus-et-raccourcis)
 - [Mises à jour et Discord](#mises-à-jour-et-discord)
 - [En cas de problème](#en-cas-de-problème)
@@ -35,23 +37,48 @@
 
 - **Aperçu en direct, en 1920 × 1080** : l’**écran d’accueil** (barre du haut, Boutique, jeu sélectionné, tuiles de
   contenu, bandeau « Nouveautés ») et l’**écran des fonctions** (rangée des 11 fonctions, avatar, tuiles du bas), tels
-  que la console les affichera. Chaque modification apparaît aussitôt ; qualité de l’aperçu en 1080p ou 720p.
-- **Arrière-plans** : une image en PNG ou JPG (1920 × 1080) pour l’écran d’accueil et une pour l’écran des fonctions.
+  que la console les affichera, avec le défilement des applications (molette, flèches, clavier ou glisser) et la
+  transition de la PS4 entre les deux écrans. Chaque modification apparaît aussitôt ; qualité de l’aperçu en 1080p ou
+  720p.
+
+- **Arrière-plans** : une image PNG ou JPG pour l’écran d’accueil et une pour l’écran des fonctions (1920 × 1080 ; une
+  image d’une autre taille est recadrée toute seule), et une **barre des fonctions** facultative (1920 × 164), que la
+  console affiche en haut de l’écran quand une application reprend après le mode repos.
+
 - **Couleur du thème** : la couleur que la PS4 affiche dans ses Paramètres et ses autres menus, parmi ses huit
   couleurs : bleu (par défaut), rose, rouge, bleu marine, gris foncé, or, bleu acier clair ou violet. Elle ne change
   pas les arrière-plans.
-- **Icônes** : un clic sur une icône, une tuile, l’image de la Boutique, le jeu sélectionné ou l’avatar de l’aperçu
-  pour choisir son image PNG, à la même taille et à la même place. **Effacer** vide d’un clic les icônes de contenu ou
-  les icônes de fonction, ou retire les images de fond.
-- **Sons** : musique de fond (activable), musique principale par glisser-déposer, et effets sonores **Défilement**,
-  **Sélection** et **Annulation** (un par un, ou les trois d’un coup avec **Tout importer**).
-- **Couleurs** : police, ombre de police, focus, et voiles de l’accueil, des fonctions et des titres, avec leur
-  opacité ; **Réinitialiser** rend les valeurs d’origine.
-- **Thème** : titre affiché sur la console, **Title ID** (`CUSA99999` : 4 lettres et 5 chiffres, mis en majuscules
-  tout seul) et icône 512 × 512. **Créer le thème** vérifie le titre et le Title ID, signale les erreurs sous les
-  champs, puis enregistre le thème dans le dossier de sortie.
-- **Projets** `.ps4theme` : nouveau projet, ouverture, projets récents, enregistrement, import d’un thème existant,
-  export des aperçus en PNG, ouverture du dossier du projet dans l’Explorateur.
+
+- **Icônes** : les **10 icônes de contenu** (Internet, Disque, Galerie, Bibliothèque, En direct de PlayStation,
+  Musique, Disque (incrustation), Dossier, Jeu en partage, TV et vidéo) et les **9 icônes de fonction** (Notifications,
+  Amis, Communautés, Événements, Messages, Groupe, Trophées, Paramètres, Alimentation), ces dernières chacune avec son
+  **halo** : celui que vous choisissez, ou un halo généré à la couleur du focus. Un clic sur une case de l’aperçu, un
+  glisser-déposer ou le clic droit pour lui donner votre image PNG. Le « + » de PlayStation Plus, le profil, l’avatar,
+  la Boutique et le jeu sélectionné ne sont pas modifiables par un thème PS4 : ils restent dans l’aperçu, marqués
+  « non modifiable » au survol. **Effacer** remet les icônes par défaut ou retire les images de fond.
+
+- **Sons** : musique de fond (activable), musique principale (AT9, WAV, MP3, OGG, FLAC, M4A ou WMA) et effets sonores
+  **Défilement**, **Sélection** et **Annulation** (les mêmes formats, ou VAG), un par un ou les trois d’un coup avec
+  **Tout importer**. À la création du thème, ils sont convertis tout seuls aux formats de la PS4 (ATRAC9 et HE-VAG),
+  avec les outils fournis avec l’application. Le volume de la musique est ajusté, et une musique de plus de 4 min est
+  raccourcie, avec un fondu de sortie ; un effet sonore trop long pour la PS4 est coupé (environ 0,37 s pour
+  **Défilement**, 0,65 s pour **Sélection** et **Annulation**).
+
+- **Police et voiles** : couleurs de la police, de l’ombre de la police, du focus et des voiles de l’accueil, des
+  fonctions et des titres, avec l’opacité de l’ombre et des voiles ; **Réinitialiser** rend les valeurs d’origine.
+
+- **Thème** : titre et fournisseur affichés sur la console, **Title ID** tiré au hasard pour chaque projet (4 lettres
+  et 5 chiffres, par exemple `KQRA48213`), **Content ID** dont les 4 derniers chiffres, la révision, augmentent tout
+  seuls quand vous recréez un thème modifié, et icône 512 × 512.
+
+- **Créer le thème** fabrique le **paquet `.pkg`** du thème, installable avec GoldHEN : vérification du projet (les
+  erreurs s’affichent sous les champs), progression étape par étape, annulation possible, contrôles du paquet
+  fabriqué, puis compte rendu. Voir [Installer un thème sur la PS4](#installer-un-thème-sur-la-ps4).
+
+- **Projets** `.ps4theme` : chaque projet est un dossier qui garde une copie de vos fichiers ; **enregistrement
+  automatique** ; projets récents ; ouverture par double-clic sur un `.ps4theme` ; import des fichiers d’un thème
+  existant ; export des aperçus en PNG.
+
 - **Interface soignée** : thèmes **sombre**, clair ou celui de Windows, et **4 langues** : français, anglais,
   espagnol et italien.
 - **Mises à jour automatiques signées** et **activité Discord** (voir [Mises à jour et Discord](#mises-à-jour-et-discord)).
@@ -59,24 +86,38 @@
 ## Configuration requise
 
 - Un PC sous **Windows 10 ou 11 (64 bits)**.
-- Rien d’autre à installer : le runtime .NET est inclus dans l’exécutable.
+
+- Rien d’autre à installer : le runtime .NET est inclus dans l’exécutable, et les outils de conversion des sons
+  (at9tool, vagconv2 et ffmpeg) sont fournis avec l’application.
+
+- Pour installer vos thèmes : une **PS4 avec GoldHEN** et une clé USB (voir
+  [Installer un thème sur la PS4](#installer-un-thème-sur-la-ps4)).
+
 - Pour l’activité Discord (facultative) : l’application Discord ouverte sur le même PC.
 
 ## Installation
 
 1. Ouvrez la [dernière version](https://github.com/INF3CONxR7/Theme_Creator_PS4/releases/latest) et téléchargez
-   **`ThemeCreatorPS4-win-x64.zip`**. Le fichier `.zip.sig` sert au programme de mise à jour : inutile de le
-   télécharger pour utiliser l’application.
+   **`ThemeCreatorPS4-win-x64.zip`** (environ 180 Mo). Le fichier `.zip.sig` sert au programme de mise à jour :
+   inutile de le télécharger pour utiliser l’application.
+
 2. Extrayez l’archive à l’endroit de votre choix, par exemple dans Documents ou sur le Bureau : vous obtenez le dossier
-   **`ThemeCreatorPS4-win-x64`**. Gardez-le tel quel, avec ses sous-dossiers : l’application en a besoin pour se mettre
-   à jour.
+   **`ThemeCreatorPS4-win-x64`**. Gardez-le tel quel, avec tous ses fichiers et sous-dossiers : l’application en a
+   besoin pour fabriquer les thèmes et pour se mettre à jour.
 
    ```
    ThemeCreatorPS4-win-x64\
    ├─ PS4 Theme Creator.exe                   l’application
+   ├─ LibOrbisPkg.dll                         fabrication et vérification des paquets .pkg
    ├─ Licenses\
    │  ├─ Inter.LICENSE.txt                    licence de la police Inter
-   │  └─ JetBrainsMono.LICENSE.txt            licence de la police JetBrains Mono
+   │  ├─ JetBrainsMono.LICENSE.txt            licence de la police JetBrains Mono
+   │  ├─ LibOrbisPkg\                         licences (LGPL 3.0 et GPL 3.0), notice et sources de LibOrbisPkg
+   │  └─ FFmpeg\                              licence (GPL 3.0) et notes de FFmpeg, avec l’adresse de ses sources
+   ├─ Tools\
+   │  ├─ ATRAC9\                              at9tool.exe, encodeur de la musique (avec vcruntime140.dll)
+   │  ├─ HEVAG\                               vagconv2.exe, encodeur des effets sonores
+   │  └─ FFmpeg\                              ffmpeg.exe, décodage, rééchantillonnage et volume des sons
    └─ Updater\
       └─ PS4 Theme Creator Update.exe         programme de mise à jour
    ```
@@ -88,61 +129,120 @@
 
 ## Utilisation
 
-1. **Commencer** : **Fichier > Nouveau projet** (Ctrl+N), ou **Fichier > Ouvrir un projet…** (Ctrl+O) pour reprendre
-   un fichier `.ps4theme`. **Importer un thème…** part d’un thème existant.
-2. **Arrière-plan** (panneau de droite) : choisissez l’image d’accueil et l’image des fonctions, et la couleur du
-   thème. Les onglets **Écran d’accueil** et **Écran des fonctions**, au-dessus de l’aperçu, basculent entre les deux
-   écrans.
-3. **Icônes** : cliquez sur un élément de l’aperçu pour lui donner votre image PNG.
-4. **Son** : musique de fond, musique principale et effets sonores.
-5. **Police et voiles** (sous l’aperçu) : un clic sur une couleur ouvre le sélecteur de couleur.
-6. **Thème** (en bas du panneau) : titre, Title ID et icône.
-7. **Enregistrer** : Ctrl+S, ou **Fichier > Enregistrer** ; **Enregistrer sous…** (Ctrl+Maj+S) écrit une copie
-   ailleurs. **Créer le thème** (en bas à droite) vérifie le thème et l’enregistre dans le dossier de sortie
-   (`Documents\PS4 Theme Creator` par défaut, à changer dans **Paramètres > Dossier de sortie…**) ; **Dossier du
-   projet** l’ouvre dans l’Explorateur.
+1. **Commencer** : **Fichier > Nouveau projet** (Ctrl+N) demande le nom du thème et crée son dossier dans le dossier
+   de sortie (`Documents\PS4 Theme Creator` par défaut, à changer dans **Paramètres > Dossier de sortie…**).
+   **Fichier > Ouvrir un projet…** (Ctrl+O) reprend un fichier `.ps4theme`. Le projet s’enregistre tout seul à chaque
+   modification : l’application ne demande jamais d’enregistrer avant de fermer.
 
-**Fichier > Exporter** enregistre l’aperçu de l’écran d’accueil ou de l’écran des fonctions en image PNG, pour le
-partager. **Paramètres > Outils externes…** retient l’outil de fabrication de paquets PS4 de votre choix.
+2. **Arrière-plan** (panneau de droite) : l’image d’accueil et l’image des fonctions (obligatoires), la barre des
+   fonctions (facultative) et la couleur du thème. Les onglets **Écran d’accueil** et **Écran des fonctions**,
+   au-dessus de l’aperçu (ou Ctrl+1 et Ctrl+2), basculent entre les deux écrans.
+
+3. **Icônes** : cliquez sur une case de l’aperçu, ou déposez-y une image PNG. Le clic droit propose aussi **Remettre
+   l’image par défaut** et, sur une icône de fonction, **Choisir le halo…** et **Halo automatique** (qui retire le
+   halo choisi : un halo est alors généré à la création du thème) ; une icône de fonction et son halo
+   (`nom_glow.png`) peuvent être déposés ensemble. **Disque** et **Disque (incrustation)** vont par paire : fournissez
+   les deux, sinon la PS4 garde les deux icônes par défaut.
+
+4. **Son** : activez ou non la **musique de fond**, choisissez la musique principale (clic ou glisser-déposer) et les
+   effets sonores (**Choisir**, ou **Tout importer**, qui les répartit d’après leurs noms).
+
+5. **Police et voiles** (sous l’aperçu) : un clic sur une couleur ouvre le sélecteur de couleur. L’ombre de la police,
+   toujours visible dans l’aperçu, ne s’affiche sur la console que si **Paramètres > Thèmes > Ombre portée du texte** y
+   est sur « Standard ».
+
+6. **Thème** (en bas du panneau) : titre, fournisseur, Title ID, icône (PNG, obligatoire) et Content ID.
+
+7. **Créer le thème** (en bas à droite, ou Ctrl+Entrée) : le paquet est écrit dans le dossier du projet, sous
+   `build\pkg\<CONTENT_ID>-A0000-V0100.pkg` ; ceux des révisions précédentes sont rangés dans `build\pkg\archive`. Le
+   compte rendu propose **Afficher le paquet** et **Installer sur la PS4…**.
+
+**Fichier > Enregistrer sous…** (Ctrl+Maj+S) copie le projet sous un autre nom, avec ses propres identifiants : la
+copie est un autre thème. **Fichier > Importer un thème…** reprend dans le projet ouvert les images et les sons d’un
+dossier (projet, thème déjà créé, ou pack d’images et de sons reconnus d’après leurs noms). **Fichier > Exporter**
+enregistre l’aperçu de l’écran d’accueil ou de l’écran des fonctions en image PNG, pour le partager.
+**Paramètres > Outils externes…** permet d’utiliser un autre at9tool, vagconv2 ou ffmpeg que ceux fournis.
+
+## Installer un thème sur la PS4
+
+Le paquet créé est un paquet non signé (« fake PKG ») : il s’installe sur une PS4 avec **GoldHEN**, sans signature de
+Sony. Il faut aussi une clé USB formatée en **exFAT** ou **FAT32**, avec une table de partition **MBR**.
+
+1. Copiez le fichier **`.pkg`** à la **racine** de la clé USB, pas dans un dossier.
+2. Branchez la clé sur la PS4 et chargez **GoldHEN**.
+3. Installez le paquet avec le **Package Installer** de GoldHEN.
+4. Ouvrez **Paramètres > Thèmes > Sélectionner un thème**, choisissez votre thème, puis **Appliquer**.
+
+Un thème installé ainsi revient au thème par défaut après chaque redémarrage complet de la console : réappliquez-le une
+fois GoldHEN relancé, ou utilisez le mode repos avec l’option **Enable Rest Mode Support** de GoldHEN. Un thème modifié
+puis recréé reçoit une nouvelle révision, donc un nouveau Content ID et un nouveau nom de paquet.
+
+Ces étapes sont aussi dans l’application : **Paramètres > Installer un thème sur la PS4…**, ou **Installer sur la
+PS4…** dans le compte rendu de **Créer le thème**.
+
+> **À savoir** : aucun thème fabriqué avec LibOrbisPkg n’a encore été signalé publiquement comme testé sur une
+> console : les paquets créés ainsi restent à valider sur votre PS4.
 
 ## Menus et raccourcis
 
 | Menu | Contenu |
 |---|---|
-| **Fichier** | Nouveau projet · Ouvrir un projet… · Projets récents · Enregistrer · Enregistrer sous… · Importer un thème… · Exporter (aperçu de l’écran d’accueil ou de l’écran des fonctions en PNG) · Ouvrir le dossier du projet · Quitter |
-| **Paramètres** | Langue (français, anglais, espagnol, italien) · Thème (sombre, clair, système) · Qualité de l’aperçu (1080p, 720p) · Dossier de sortie… · Outils externes… · Raccourcis clavier · Vérifier les mises à jour · À propos de PS4 Theme Creator |
+| **Fichier** | Nouveau projet · Ouvrir un projet… · Projets récents (les 10 derniers) · Enregistrer · Enregistrer sous… · Importer un thème… · Exporter (aperçu de l’écran d’accueil ou de l’écran des fonctions en PNG) · Ouvrir le dossier du projet · Quitter |
+| **Paramètres** | Langue (français, anglais, espagnol, italien) · Thème (sombre, clair, système) · Qualité de l’aperçu (1080p, 720p) · Dossier de sortie… · Outils externes… · Raccourcis clavier · Installer un thème sur la PS4… · Vérifier les mises à jour · À propos de PS4 Theme Creator |
+
+En bas de la fenêtre : **Effacer** (Icônes de contenu, Icônes de fonction, Fond d’accueil, Fond des fonctions),
+**Dossier du projet**, qui l’ouvre dans l’Explorateur, et **Créer le thème**.
 
 | Raccourci | Action |
 |---|---|
 | Ctrl+N | Nouveau projet |
 | Ctrl+O | Ouvrir un projet |
-| Ctrl+S | Enregistrer |
+| Ctrl+S | Enregistrer (le projet s’enregistre aussi tout seul) |
 | Ctrl+Maj+S | Enregistrer sous |
-| Échap | Fermer le menu ouvert |
+| Ctrl+1 / Ctrl+2 | Écran d’accueil / Écran des fonctions |
+| ← / → | Faire défiler les applications (aperçu sélectionné) |
+| Début / Fin | Aller à la première ou à la dernière application |
+| Menu ou Maj+F10 | Options des cases de l’aperçu (image, halo, image par défaut) |
+| Ctrl+Entrée | Créer le thème |
+| Alt, F10 ou Alt+F | Ouvrir le menu Fichier |
+| Alt+P | Ouvrir le menu Paramètres |
+| Échap | Fermer un menu ou une fenêtre |
 | Alt+F4 | Quitter |
 
-Les raccourcis fonctionnent menus fermés ; **Paramètres > Raccourcis clavier** les rappelle tous.
+**Paramètres > Raccourcis clavier** les rappelle tous.
 
 ## Mises à jour et Discord
 
-- **Mises à jour** : l’application vérifie sur GitHub si une nouvelle version est publiée, et le propose : un clic sur
-  **Installer**, et elle se ferme, installe la mise à jour, puis se relance. Vous pouvez aussi vérifier à tout moment
-  avec **Paramètres > Vérifier les mises à jour**. Chaque version est **signée** : une version dont la signature est
-  absente ou invalide est refusée. Aucun droit d’administrateur n’est demandé, sauf si l’application est installée
-  dans un dossier protégé comme `C:\Program Files`.
-- **Activité Discord** : si Discord est ouvert sur le PC, votre profil indique que vous utilisez PS4 Theme Creator et
-  ce que vous faites (création, enregistrement…), sans jamais montrer le nom ni le chemin de vos fichiers. Elle
-  n’existe que dans une version où l’application Discord de PS4 Theme Creator est renseignée, et se désactive dans
-  **Paramètres > Outils externes…**.
+- **Mises à jour** : quelques secondes après l’ouverture, l’application vérifie sur GitHub si une nouvelle version est
+  publiée. Si c’est le cas, aucune fenêtre ne s’ouvre : le badge de version, à droite de la barre de titre, passe en
+  bleu. Un clic sur ce badge (ou **Paramètres > Vérifier les mises à jour**, à tout moment) ouvre « Mise à jour
+  disponible » ; un clic sur **Installer**, et l’application se ferme, installe la mise à jour, puis se relance. La
+  vérification au démarrage se coupe dans **Paramètres > Outils externes…**. Chaque version est **signée** : une
+  version dont la signature est absente ou invalide est refusée. Une mise à jour télécharge la version entière
+  (environ 180 Mo). Aucun droit d’administrateur n’est demandé, sauf si l’application est installée dans un dossier
+  protégé comme `C:\Program Files`.
+
+- **Activité Discord** (activée par défaut) : si Discord est ouvert sur le PC, votre profil indique que vous utilisez
+  PS4 Theme Creator, ce que vous faites (édition, enregistrement, création du thème…) et le **titre du thème** en
+  cours, avec un bouton « Rejoindre le serveur Discord ». Le nom et le chemin de vos fichiers ne sont jamais montrés.
+  Elle se désactive dans **Paramètres > Outils externes…** (« Afficher mon activité sur Discord »).
 
 ## En cas de problème
 
 | Problème | Solution |
 |---|---|
 | « Windows a protégé votre ordinateur » | Voir la note **Windows SmartScreen** de l’[installation](#installation). |
-| La mise à jour ne démarre pas, ou le programme de mise à jour est introuvable | Vérifiez que les dossiers `Licenses` et `Updater` sont bien à côté de `PS4 Theme Creator.exe` ; sinon, retéléchargez la dernière version. |
-| Une mise à jour échoue | Le message en donne la cause, et le lien **Ouvrir le journal** de la fenêtre de mise à jour le détail (`%LocalAppData%\PS4 Theme Creator\Logs\updates.log`). **Réessayer** recommence ; la version installée n’est jamais abîmée. |
-| « Une mise à jour de PS4 Theme Creator est en cours d’installation » au lancement | Attendez la fin de la mise à jour : l’application se relancera toute seule. |
+| **Créer le thème** signale un outil introuvable, ou que `LibOrbisPkg.dll` est absente | Un fichier de l’application manque, souvent mis en quarantaine par un antivirus : retéléchargez la dernière version et gardez tous les fichiers de l’archive. Pour un outil, vous pouvez aussi indiquer son emplacement dans **Paramètres > Outils externes…**. |
+| « at9tool.exe » ne démarre pas (code 0xC0000135) | Il lui manque la bibliothèque Visual C++ `vcruntime140.dll` : remettez-la dans `Tools\ATRAC9\` (en retéléchargeant la dernière version) ou installez « Microsoft Visual C++ Redistributable » (x64). |
+| Les outils de Sony ne savent pas lire le chemin du projet (« ★ », « 東京 »…) | Renommez ou déplacez le dossier du projet pour que son chemin n’ait aucun de ces caractères, puis recréez le thème. |
+| Un effet sonore `.vag` est refusé | Un fichier HE-VAG qui ne convient pas tel quel à la PS4 (pas en 48 kHz, en boucle ou trop long) ne peut pas être converti : choisissez sa source (WAV, MP3…), que l’application convertit et raccourcit au besoin. |
+| CE-37695-0 à l’installation sur la PS4 | Le paquet a été installé comme une application (marqueur de thème absent) : recréez le thème avec la dernière version de PS4 Theme Creator, dont les contrôles vérifient ce marqueur, puis réinstallez le paquet. |
+| « Données endommagées » sur la PS4 | Empreintes du paquet invalides, ou fichier hors spécification : recopiez le `.pkg` sur la clé USB (la copie a pu être abîmée), ou recréez le thème, dont les contrôles vérifient les empreintes, puis réinstallez-le. |
+| CE-33676-5 sur la PS4 | Contenu non détecté : chargez GoldHEN, ou réinstallez le paquet. |
+| Le thème redevient le thème par défaut | C’est normal après un redémarrage complet : réappliquez-le une fois GoldHEN relancé, ou utilisez le mode repos (**Enable Rest Mode Support**). |
+| La mise à jour ne démarre pas, ou le programme de mise à jour est introuvable | Vérifiez que le dossier `Updater` est bien à côté de `PS4 Theme Creator.exe`, avec les autres fichiers de l’archive ; sinon, retéléchargez la dernière version. |
+| Une mise à jour échoue | Le message en donne la cause, et le lien **Ouvrir le journal** de la fenêtre de mise à jour le détail (`%LocalAppData%\PS4 Theme Creator\Logs\updates.log`). **Réessayer**, quand il est proposé, recommence. En cas d’échec, la version installée est remise en place ; si elle ne peut pas l’être entièrement, le message indique le dossier où ses fichiers sont conservés, et la mise à jour suivante la répare. |
+| « Une mise à jour de PS4 Theme Creator est en cours d’installation » au lancement | Attendez la fin de la mise à jour : l’application se relancera toute seule. Si la fenêtre de mise à jour affiche une erreur, fermez-la, puis relancez l’application. |
 | « Une erreur inattendue s’est produite » | L’application continue : enregistrez votre projet, puis redémarrez-la si quelque chose ne fonctionne plus. Pour signaler le problème, joignez le **détail technique** affiché sous le message. |
 
 Une question ? Rejoignez le [serveur Discord](https://discord.gg/TbFYvqsh5z).
@@ -153,23 +253,38 @@ Supprimez le dossier de l’application. Elle garde aussi, pour votre compte Win
 
 | Emplacement | Contenu |
 |---|---|
-| `HKEY_CURRENT_USER\Software\ThemeCreatorPS4` | Réglages : langue, thème, qualité de l’aperçu, dossier de sortie, outil externe, projets récents, fenêtre, activité Discord. |
+| `HKEY_CURRENT_USER\Software\ThemeCreatorPS4` | Réglages : langue, thème, qualité de l’aperçu, dossier de sortie, chemins des outils externes, projets récents, fenêtre, activité Discord, vérification des mises à jour au démarrage. |
+| `HKEY_CURRENT_USER\Software\Classes\ThemeCreatorPS4.Project` et `HKEY_CURRENT_USER\Software\Classes\.ps4theme` | Ouverture des projets `.ps4theme` par double-clic. |
 | `%LocalAppData%\PS4 Theme Creator` | Journal des mises à jour (`Logs\updates.log`). |
 
-Vous pouvez supprimer cette clé et ce dossier. Vos projets `.ps4theme` et vos thèmes créés (par défaut dans
-`Documents\PS4 Theme Creator`) restent là où vous les avez enregistrés.
+Vous pouvez supprimer ces clés et ce dossier. Vos projets restent là où ils sont : un dossier par projet (par défaut
+dans `Documents\PS4 Theme Creator\<nom du thème>\`), avec ses paquets créés dans `build\pkg\`.
 
 ## Crédits et licences
 
 - **PS4 Theme Creator** : Copyright © 2026 INF3C7ONxR7. Tous droits réservés.
+
 - **Polices Inter** (© 2016 The Inter Project Authors) et **JetBrains Mono** (© 2020 The JetBrains Mono Project
   Authors) : sous licence [SIL Open Font License 1.1](https://openfontlicense.org/), embarquées dans l’application ;
   leurs licences sont livrées dans `Licenses\`.
-- **Icônes [Lucide](https://lucide.dev/)** (© Lucide Contributors ; en partie © Cole Bemis, Feather) : sous licence
-  [ISC](https://lucide.dev/license), dessinées par l’application.
+
+- **Icônes [Lucide](https://lucide.dev/)** (© Lucide Contributors, sous licence [ISC](https://lucide.dev/license) ;
+  en partie © Cole Bemis, Feather, sous licence MIT), dessinées par l’application.
+
+- **[LibOrbisPkg](https://github.com/maxton/LibOrbisPkg)** (Copyright © 2018-2020 Maxton) : sous licence
+  [GNU LGPL 3.0](https://www.gnu.org/licenses/lgpl-3.0.html), dans une copie adaptée aux thèmes ; elle fabrique et
+  vérifie les paquets `.pkg`. Elle reste une bibliothèque distincte (`LibOrbisPkg.dll`), que vous pouvez remplacer par
+  une version modifiée ; ses licences, sa notice (origine et modifications) et ses sources sont livrées dans
+  `Licenses\LibOrbisPkg\`.
+
+- **[FFmpeg](https://ffmpeg.org/)** (build Windows de [gyan.dev](https://www.gyan.dev/ffmpeg/builds/)) : sous licence
+  [GNU GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.html), programme distinct fourni dans `Tools\FFmpeg\` ; sa
+  licence et ses notes, avec l’adresse de ses sources, sont livrées dans `Licenses\FFmpeg\`.
+- **at9tool** et **vagconv2** : outils du SDK PlayStation, © Sony Interactive Entertainment Inc., fournis dans
+  `Tools\`.
 
 Projet non officiel, sans lien avec Sony. PlayStation et PS4 sont des marques de Sony Interactive Entertainment.
-Discord et GitHub sont des marques de leurs propriétaires.
+FFmpeg est une marque de Fabrice Bellard. Discord et GitHub sont des marques de leurs propriétaires.
 
 ## Support
 
@@ -183,46 +298,83 @@ Développé par **INF3C7ONxR7**. Copyright © 2026 INF3C7ONxR7.
 
 ## English
 
-**PS4 Theme Creator** is a dark, modern editor for **PS4 themes**: backgrounds, icons, sounds and colours, with a
-**live 1920 × 1080 preview** of the home screen and the function screen, exactly as the console will show them. The
-interface is available in French, English, Spanish and Italian (**Settings > Language**), with dark, light or system
-theme.
+**PS4 Theme Creator** is a dark, modern editor for **PS4 themes**: backgrounds, icons, sounds and colors, with a
+**live 1920 × 1080 preview** of the home screen and the function screen, exactly as the console will show them. It
+then builds the theme’s **`.pkg` package**, ready to install on a PS4 with GoldHEN. The interface is available in
+French, English, Spanish and Italian (**Settings > Language**), with dark, light or system theme.
 
-**Requirements**: Windows 10 or 11 (64-bit) PC, nothing else to install (the .NET runtime is included).
+**Requirements**: Windows 10 or 11 (64-bit) PC, nothing else to install (the .NET runtime and the sound conversion
+tools are included). To install your themes: a PS4 running GoldHEN and a USB drive.
 
 **Features**: live preview of the home screen (top bar, Store, selected game, content tiles, “What’s New” banner) and
-of the function screen (row of 11 functions, avatar, bottom tiles), in 1080p or 720p · home and function background
-images (PNG or JPG, 1920 × 1080) · theme colour: the colour the PS4 shows in its Settings and other menus, one of its
-eight colours (blue by default, pink, red, navy, dark gray, gold, light steel blue or purple), which does not change
-the backgrounds · click any icon, tile, Store image, selected game or avatar of the preview to replace it with your
-PNG; **Clear** empties the content or function icons, or removes the background images · background music, main music
-(drag and drop) and the **Scroll**, **Select** and **Cancel** sound effects (**Import all** picks the three at once) ·
-font, font shadow, focus and home, function and title veil colours, with opacity · theme title, **Title ID**
-(`CUSA99999`: 4 letters and 5 digits) and 512 × 512 icon · **Create theme** checks the title and Title ID, then saves
-the theme to the output folder · `.ps4theme` project files (new, open, recent projects, save, import an existing
-theme, export the previews as PNG) · signed automatic updates and Discord activity.
+of the function screen (row of 11 functions, avatar, bottom tiles), with app scrolling and the PS4 screen transition,
+in 1080p or 720p · home and function screen images (PNG or JPG, 1920 × 1080; other sizes are cropped and resized to
+fit) and an optional function area bar (1920 × 164) · theme color: the color the PS4 shows in its Settings and other
+menus, one of its eight colors (blue by default, pink, red, navy, dark gray, gold, light steel blue or purple), which
+does not change the backgrounds · the 10 content icons, and the 9 function icons with their glows (chosen, or generated in the focus
+color): click, drop a PNG or right-click a slot of the preview; the PlayStation Plus “+”, profile, avatar, Store and
+selected game cannot be changed by a PS4 theme and stay as preview only; **Clear** restores the default icons or
+removes the backgrounds · a **Background music** switch, the main music (AT9, WAV, MP3, OGG, FLAC, M4A or WMA) and
+the **Scroll**, **Select** and **Cancel** sound effects (same formats or VAG; **Import all** picks the three at once),
+converted automatically to ATRAC9 and HE-VAG with the bundled tools; the music volume is adjusted and music longer
+than 4 min is shortened with a fade-out; sound effects longer than the PS4 allows are cut (about 0.37 s for Scroll,
+0.65 s for Select and Cancel) ·
+font, font shadow, focus and home, functions and titles overlay colors, with opacity for the shadow and the overlays
+(**Reset** restores them) · theme title and provider, random **Title ID** (4 letters and 5 digits, for example
+`KQRA48213`), **Content ID** whose last 4 digits (the revision) go up when you build a modified theme again, and
+512 × 512 icon · **Create theme** checks the project, builds the `.pkg` with progress and cancel, checks the package,
+then shows a report · `.ps4theme` projects, each one a folder holding a copy of your files, saved automatically ·
+signed automatic updates and Discord activity.
 
-**Install**: download **`ThemeCreatorPS4-win-x64.zip`** from the
+**Install**: download **`ThemeCreatorPS4-win-x64.zip`** (about 180 MB) from the
 [latest release](https://github.com/INF3CONxR7/Theme_Creator_PS4/releases/latest) (not the `.sig` file, used by the
-updater), extract it wherever you like to get the **`ThemeCreatorPS4-win-x64`** folder, keep it as is with its
-`Licenses` and `Updater` subfolders, and run **`PS4 Theme Creator.exe`**. The executable is not Authenticode-signed,
-so Windows SmartScreen may show “Windows protected your PC”: click **More info**, then **Run anyway**.
+updater), extract it wherever you like to get the **`ThemeCreatorPS4-win-x64`** folder, keep it as is with all its
+files (`LibOrbisPkg.dll`, the `Licenses`, `Tools` and `Updater` subfolders), and run **`PS4 Theme Creator.exe`**. The
+executable is not Authenticode-signed, so Windows SmartScreen may show “Windows protected your PC”: click
+**More info**, then **Run anyway**.
 
-**Usage**: start a new project (Ctrl+N) or open a `.ps4theme` file (Ctrl+O), pick the backgrounds and the theme colour
-in the right-hand panel, click the preview to replace icons, add the music and sound effects, set the colours under
-the preview and the title, Title ID and icon at the bottom of the panel, then save (Ctrl+S; Ctrl+Shift+S: save as) and
-click **Create theme**. **File > Export** saves either preview as a PNG image.
+**Usage**: create a project (**File > New project**, Ctrl+N: it asks for the theme name and creates its folder in the
+output folder, `Documents\PS4 Theme Creator` by default) or open a `.ps4theme` file (Ctrl+O). The project saves
+itself after every change. Pick the backgrounds and the theme color in the right-hand panel, click or drop images on
+the preview, add the music and sound effects, set the colors under the preview and the title, provider, Title ID,
+icon and Content ID at the bottom of the panel, then click **Create theme** (Ctrl+Enter). The package is written to
+`build\pkg\` inside the project folder. **File > Export** saves either preview as a PNG image; **Settings > External
+tools…** lets you use another at9tool, vagconv2 or ffmpeg.
 
-**Updates**: the app checks GitHub for new versions; you can also check at any time from **Settings > Check for
-updates**. Every release is signed; unsigned or tampered releases are refused. No administrator rights are needed,
-unless the app is installed in a protected folder such as `C:\Program Files`. When Discord is running on the same PC,
-your profile shows that you are using PS4 Theme Creator (never your file names or paths).
+**Installing a theme on the PS4**: you need a PS4 running **GoldHEN** (the package is an unsigned fake PKG) and a USB
+drive formatted as exFAT or FAT32 with an MBR partition table. Copy the `.pkg` to the root of the drive, load GoldHEN,
+install the package with GoldHEN’s **Package Installer**, then open **Settings > Themes > Select Theme**, choose your
+theme and **Apply**. After a full restart the console goes back to the default theme: apply it again once GoldHEN is
+loaded, or use rest mode with GoldHEN’s **Enable Rest Mode Support**. The same steps are in the app (**Settings >
+Install a theme on the PS4…**). No theme built with LibOrbisPkg has been publicly reported as tested on a console yet.
 
-**Uninstall**: delete the app folder. Settings are in `HKEY_CURRENT_USER\Software\ThemeCreatorPS4`, the update log in
-`%LocalAppData%\PS4 Theme Creator`.
+**Updates**: a few seconds after it opens, the app checks GitHub for a new version (this can be turned off in
+**Settings > External tools…**). When one is found, no window opens: the version badge in the title bar turns blue.
+Click it (or **Settings > Check for updates**, at any time) to see the new version and **Install** it. Every release
+is signed; unsigned or tampered releases are refused. No administrator rights are needed, unless the app is installed
+in a protected folder such as `C:\Program Files`. When the Discord app is running on the same PC, your profile shows
+that you are using PS4 Theme Creator, what you are doing (editing, saving, creating the theme) and the theme title,
+never your file names or paths. This is on by default; turn it off in **Settings > External tools…** (“Show my
+activity on Discord”).
+
+**Troubleshooting**: if **Create theme** reports a missing tool or a missing `LibOrbisPkg.dll`, a file of the app is
+missing (often quarantined by an antivirus): download the latest release again and keep all the files of the
+archive, or set the tool’s location in **Settings > External tools…**. If at9tool.exe does not start (code
+0xC0000135), `vcruntime140.dll` is missing from `Tools\ATRAC9\`: download the latest release again or install the
+“Microsoft Visual C++ Redistributable” (x64). If an update fails, **Open the log** in the update window shows the
+details (`%LocalAppData%\PS4 Theme Creator\Logs\updates.log`).
+
+**Uninstall**: delete the app folder. You can also delete what it keeps for your Windows account: its settings in
+`HKEY_CURRENT_USER\Software\ThemeCreatorPS4`, the `.ps4theme` file association in
+`HKEY_CURRENT_USER\Software\Classes\ThemeCreatorPS4.Project` and `HKEY_CURRENT_USER\Software\Classes\.ps4theme` (only
+these two keys), and the update log in `%LocalAppData%\PS4 Theme Creator`. Your projects stay where they are.
 
 **Credits and licenses**: Inter and JetBrains Mono fonts under the SIL Open Font License 1.1 · Lucide icons under the
-ISC license. Unofficial project, not affiliated with Sony.
+ISC license (Feather portions under the MIT license) · [LibOrbisPkg](https://github.com/maxton/LibOrbisPkg)
+(Copyright © 2018-2020 Maxton) under the GNU LGPL 3.0, as a separate, replaceable `LibOrbisPkg.dll`, with its
+licenses, notice and source code in `Licenses\LibOrbisPkg\` · [FFmpeg](https://ffmpeg.org/) (gyan.dev Windows build)
+under the GNU GPL 3.0, with its license and source code address in `Licenses\FFmpeg\` · at9tool and vagconv2,
+PlayStation SDK tools, © Sony Interactive Entertainment Inc. Unofficial project, not affiliated with Sony.
 
 **Support**: [Discord](https://discord.gg/TbFYvqsh5z) · [GitHub](https://github.com/INF3CONxR7/Theme_Creator_PS4) ·
 Copyright © 2026 **INF3C7ONxR7**.
