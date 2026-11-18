@@ -27,7 +27,6 @@
 - [Mises à jour et Discord](#mises-à-jour-et-discord)
 - [En cas de problème](#en-cas-de-problème)
 - [Désinstaller](#désinstaller)
-- [Compiler depuis les sources](#compiler-depuis-les-sources)
 - [Crédits et licences](#crédits-et-licences)
 - [Support](#support)
 - [English](#english)
@@ -160,28 +159,6 @@ Supprimez le dossier de l’application. Elle garde aussi, pour votre compte Win
 Vous pouvez supprimer cette clé et ce dossier. Vos projets `.ps4theme` et vos thèmes créés (par défaut dans
 `Documents\PS4 Theme Creator`) restent là où vous les avez enregistrés.
 
-## Compiler depuis les sources
-
-Il faut Windows 10 ou 11 et le **SDK .NET 10** (Visual Studio 2026, ou la ligne de commande `dotnet`). Aucun paquet
-NuGet : tout est écrit avec .NET et Windows Forms.
-
-1. Ouvrez la solution **`Theme_Creator_PS4.slnx`** dans Visual Studio, ou, depuis son dossier :
-
-   ```powershell
-   dotnet build Theme_Creator_PS4.slnx -c Debug
-   ```
-
-   L’application compilée est dans `bin\Debug\net10.0-windows\` (`PS4 Theme Creator.exe`), avec son dossier
-   `Licenses\` et, en Debug seulement, le programme de mise à jour dans `Updater\`.
-2. Pour publier une version (deux exécutables autonomes, paquet `.zip` signé et notes de version) :
-
-   ```powershell
-   powershell -NoProfile -ExecutionPolicy Bypass -File .\build\Publish-Release.ps1
-   ```
-
-   La clé de signature se crée une fois avec `build\New-SigningKey.ps1`. Mode d’emploi complet :
-   `build\README-MISES-A-JOUR.md`.
-
 ## Crédits et licences
 
 - **PS4 Theme Creator** : Copyright © 2026 INF3C7ONxR7. Tous droits réservés.
@@ -243,10 +220,6 @@ your profile shows that you are using PS4 Theme Creator (never your file names o
 
 **Uninstall**: delete the app folder. Settings are in `HKEY_CURRENT_USER\Software\ThemeCreatorPS4`, the update log in
 `%LocalAppData%\PS4 Theme Creator`.
-
-**Build from source**: Windows 10 or 11 and the .NET 10 SDK (Visual Studio 2026 or the `dotnet` CLI), no NuGet
-package: open `Theme_Creator_PS4.slnx`, or run `dotnet build Theme_Creator_PS4.slnx -c Debug`. Releases are published
-with `build\Publish-Release.ps1` (see `build\README-MISES-A-JOUR.md`, in French).
 
 **Credits and licenses**: Inter and JetBrains Mono fonts under the SIL Open Font License 1.1 · Lucide icons under the
 ISC license. Unofficial project, not affiliated with Sony.
