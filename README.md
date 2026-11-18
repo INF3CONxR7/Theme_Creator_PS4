@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo.png" alt="Logo de PS4 Theme Creator" width="128">
+  <img src="https://zupimages.net/up/26/47/9otr.png" alt="Logo de PS4 Theme Creator" width="128">
 </p>
 
 <h1 align="center">PS4 Theme Creator</h1>
