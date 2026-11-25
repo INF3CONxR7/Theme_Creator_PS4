@@ -203,8 +203,7 @@ puis recréé reçoit une nouvelle révision, donc un nouveau Content ID et un n
 Ces étapes sont aussi dans l’application : **Paramètres > Installer un thème sur la PS4…**, ou **Installer sur la
 PS4…** dans le compte rendu de **Créer le thème**.
 
-> **À savoir** : aucun thème fabriqué avec LibOrbisPkg n’a encore été signalé publiquement comme testé sur une
-> console : les paquets créés ainsi restent à valider sur votre PS4.
+> **Testé sur une PS4** : un thème créé par PS4 Theme Creator s’installe avec GoldHEN et s’applique sur la console.
 
 ## Menus et raccourcis
 
@@ -387,7 +386,8 @@ drive formatted as exFAT or FAT32 with an MBR partition table. Copy the `.pkg` t
 install the package with GoldHEN’s **Package Installer**, then open **Settings > Themes > Select Theme**, choose your
 theme and **Apply**. After a full restart the console goes back to the default theme: apply it again once GoldHEN is
 loaded, or use rest mode with GoldHEN’s **Enable Rest Mode Support**. The same steps are in the app (**Settings >
-Install a theme on the PS4…**). No theme built with LibOrbisPkg has been publicly reported as tested on a console yet.
+Install a theme on the PS4…**). Tested on a PS4: a theme built with PS4 Theme Creator can be installed with
+GoldHEN and applied on the console.
 
 **Updates**: a few seconds after it opens, the app checks GitHub for a new version (this can be turned off in
 **Settings > External tools…**). When one is found, no window opens: the version badge in the title bar turns blue.
