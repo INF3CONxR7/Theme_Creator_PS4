@@ -289,19 +289,24 @@ dans `Documents\PS4 Theme Creator\<nom du thème>\`), avec ses paquets créés d
 ## Crédits et licences
 
 - **PS4 Theme Creator** : Copyright © 2026 INF3C7ONxR7. Tous droits réservés.
+
 - **Polices Inter** (© 2016 The Inter Project Authors) et **JetBrains Mono** (© 2020 The JetBrains Mono Project
   Authors) : sous licence [SIL Open Font License 1.1](https://openfontlicense.org/), embarquées dans l’application ;
   leurs licences sont livrées dans `Licenses\`.
+
 - **Icônes [Lucide](https://lucide.dev/)** (© Lucide Contributors, sous licence [ISC](https://lucide.dev/license) ;
   en partie © Cole Bemis, Feather, sous licence MIT), dessinées par l’application.
+
 - **[LibOrbisPkg](https://github.com/maxton/LibOrbisPkg)** (Copyright © 2018-2020 Maxton) : sous licence
   [GNU LGPL 3.0](https://www.gnu.org/licenses/lgpl-3.0.html), dans une copie adaptée aux thèmes ; elle fabrique et
   vérifie les paquets `.pkg`. Elle reste une bibliothèque distincte (`LibOrbisPkg.dll`), que vous pouvez remplacer par
   une version modifiée ; ses licences, sa notice (origine et modifications) et ses sources sont livrées dans
   `Licenses\LibOrbisPkg\`.
+
 - **[FFmpeg](https://ffmpeg.org/)** (build Windows de [gyan.dev](https://www.gyan.dev/ffmpeg/builds/)) : sous licence
   [GNU GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.html), programme distinct fourni dans `Tools\FFmpeg\` ; sa
   licence et ses notes, avec l’adresse de ses sources, sont livrées dans `Licenses\FFmpeg\`.
+
 - **at9tool** et **vagconv2** : outils du SDK PlayStation, © Sony Interactive Entertainment Inc., fournis dans
   `Tools\`.
 
