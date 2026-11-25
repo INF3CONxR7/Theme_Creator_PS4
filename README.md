@@ -75,12 +75,14 @@
   erreurs s’affichent sous les champs), progression étape par étape, annulation possible, contrôles du paquet
   fabriqué, puis compte rendu. Voir [Installer un thème sur la PS4](#installer-un-thème-sur-la-ps4).
 
-- **Projets** `.ps4theme` : chaque projet est un dossier qui garde une copie de vos fichiers ; **enregistrement
-  automatique** ; projets récents ; ouverture par double-clic sur un `.ps4theme` ; import des fichiers d’un thème
-  existant ; export des aperçus en PNG.
+- **Projets** `.ps4theme` : chaque projet est un dossier qui garde une copie de vos fichiers ; **enregistrement quand
+  vous le décidez** (Ctrl+S), avec un « * » après le titre du thème tant que des modifications ne sont pas
+  enregistrées, et la proposition de les enregistrer avant de fermer ; projets récents ; ouverture par double-clic sur
+  un `.ps4theme` ; import des fichiers d’un thème existant ; export des aperçus en PNG.
 
 - **Interface soignée** : thèmes **sombre**, clair ou celui de Windows, et **4 langues** : français, anglais,
   espagnol et italien.
+
 - **Mises à jour automatiques signées** et **activité Discord** (voir [Mises à jour et Discord](#mises-à-jour-et-discord)).
 
 ## Configuration requise
@@ -121,6 +123,7 @@
    └─ Updater\
       └─ PS4 Theme Creator Update.exe         programme de mise à jour
    ```
+
 3. Lancez **`PS4 Theme Creator.exe`** depuis ce dossier. La langue se change dans **Paramètres > Langue**, le thème
    dans **Paramètres > Thème**.
 
@@ -131,8 +134,8 @@
 
 1. **Commencer** : **Fichier > Nouveau projet** (Ctrl+N) demande le nom du thème et crée son dossier dans le dossier
    de sortie (`Documents\PS4 Theme Creator` par défaut, à changer dans **Paramètres > Dossier de sortie…**).
-   **Fichier > Ouvrir un projet…** (Ctrl+O) reprend un fichier `.ps4theme`. Le projet s’enregistre tout seul à chaque
-   modification : l’application ne demande jamais d’enregistrer avant de fermer.
+   **Fichier > Ouvrir un projet…** (Ctrl+O) reprend un fichier `.ps4theme`. Vos modifications ne s’enregistrent pas
+   toutes seules : enregistrez-les avec Ctrl+S (voir **Enregistrer**, sous ces étapes).
 
 2. **Arrière-plan** (panneau de droite) : l’image d’accueil et l’image des fonctions (obligatoires), la barre des
    fonctions (facultative) et la couleur du thème. Les onglets **Écran d’accueil** et **Écran des fonctions**,
@@ -153,14 +156,34 @@
 
 6. **Thème** (en bas du panneau) : titre, fournisseur, Title ID, icône (PNG, obligatoire) et Content ID.
 
-7. **Créer le thème** (en bas à droite, ou Ctrl+Entrée) : le paquet est écrit dans le dossier du projet, sous
-   `build\pkg\<CONTENT_ID>-A0000-V0100.pkg` ; ceux des révisions précédentes sont rangés dans `build\pkg\archive`. Le
-   compte rendu propose **Afficher le paquet** et **Installer sur la PS4…**.
+7. **Créer le thème** (en bas à droite, ou Ctrl+Entrée) : les modifications du projet sont d’abord enregistrées, comme
+   avec Ctrl+S (si l’enregistrement échoue, le thème n’est pas créé) ; le paquet est écrit dans le dossier du projet,
+   sous `build\pkg\<CONTENT_ID>-A0000-V0100.pkg` ; ceux des révisions précédentes sont rangés dans `build\pkg\archive`.
+   Le compte rendu propose **Afficher le paquet** et **Installer sur la PS4…**.
+
+**Enregistrer** : vos modifications ne s’enregistrent jamais toutes seules. **Fichier > Enregistrer** (Ctrl+S) écrit
+le projet, copie dans son dossier les images et les sons choisis ou importés depuis le dernier enregistrement, et en
+retire les copies devenues inutiles. D’ici là, le dossier du projet reste tel qu’il a été enregistré (c’est ce que
+montrent **Dossier du projet** et **Fichier > Ouvrir le dossier du projet**), et l’aperçu montre vos fichiers là où
+vous les avez pris. Tant que le projet diffère de sa dernière version enregistrée, un « * » suit le titre du thème,
+affiché dans la barre de titre après le nom de l’application (dans la barre des tâches, il le précède). Si
+l’enregistrement échoue, le message nomme le fichier en cause, rien ne change dans le dossier du projet et les
+modifications restent à enregistrer. L’application n’enregistre d’elle-même que dans deux cas : après
+**Créer le thème**, pour noter dans le projet la révision du thème créé (le projet venait d’être enregistré) ; et à
+l’ouverture d’un projet d’une version précédente de l’application, rangé une fois pour toutes (ses fichiers passent
+dans le sous-dossier `sources\`).
+
+**Modifications non enregistrées** : avant de fermer la fenêtre, d’ouvrir ou de créer un autre projet, ou d’installer
+une mise à jour, l’application propose de les enregistrer : **Enregistrer**, **Ne pas enregistrer** (le projet reste
+tel qu’il a été enregistré) ou **Annuler**. Quand Windows s’arrête ou ferme la session, rien n’est enregistré à votre
+place : l’application retient l’arrêt et pose la même question.
 
 **Fichier > Enregistrer sous…** (Ctrl+Maj+S) copie le projet sous un autre nom, avec ses propres identifiants : la
-copie est un autre thème. **Fichier > Importer un thème…** reprend dans le projet ouvert les images et les sons d’un
-dossier (projet, thème déjà créé, ou pack d’images et de sons reconnus d’après leurs noms). **Fichier > Exporter**
-enregistre l’aperçu de l’écran d’accueil ou de l’écran des fonctions en image PNG, pour le partager.
+copie est un autre thème. Elle reçoit le projet tel que vous le voyez, modifications non enregistrées comprises, et
+s’ouvre à sa place ; l’original reste tel qu’il a été enregistré. **Fichier > Importer un thème…** reprend dans le
+projet ouvert les images et les sons d’un dossier (projet, thème déjà créé, ou pack d’images et de sons reconnus
+d’après leurs noms). **Fichier > Exporter** enregistre l’aperçu de l’écran d’accueil ou de l’écran des fonctions en
+image PNG, pour le partager.
 **Paramètres > Outils externes…** permet d’utiliser un autre at9tool, vagconv2 ou ffmpeg que ceux fournis.
 
 ## Installer un thème sur la PS4
@@ -197,7 +220,7 @@ En bas de la fenêtre : **Effacer** (Icônes de contenu, Icônes de fonction, Fo
 |---|---|
 | Ctrl+N | Nouveau projet |
 | Ctrl+O | Ouvrir un projet |
-| Ctrl+S | Enregistrer (le projet s’enregistre aussi tout seul) |
+| Ctrl+S | Enregistrer |
 | Ctrl+Maj+S | Enregistrer sous |
 | Ctrl+1 / Ctrl+2 | Écran d’accueil / Écran des fonctions |
 | ← / → | Faire défiler les applications (aperçu sélectionné) |
@@ -216,11 +239,12 @@ En bas de la fenêtre : **Effacer** (Icônes de contenu, Icônes de fonction, Fo
 - **Mises à jour** : quelques secondes après l’ouverture, l’application vérifie sur GitHub si une nouvelle version est
   publiée. Si c’est le cas, aucune fenêtre ne s’ouvre : le badge de version, à droite de la barre de titre, passe en
   bleu. Un clic sur ce badge (ou **Paramètres > Vérifier les mises à jour**, à tout moment) ouvre « Mise à jour
-  disponible » ; un clic sur **Installer**, et l’application se ferme, installe la mise à jour, puis se relance. La
-  vérification au démarrage se coupe dans **Paramètres > Outils externes…**. Chaque version est **signée** : une
-  version dont la signature est absente ou invalide est refusée. Une mise à jour télécharge la version entière
-  (environ 180 Mo). Aucun droit d’administrateur n’est demandé, sauf si l’application est installée dans un dossier
-  protégé comme `C:\Program Files`.
+  disponible » ; un clic sur **Installer**, et l’application se ferme, installe la mise à jour, puis se relance (si le
+  projet ouvert a des modifications non enregistrées, elle propose d’abord de les enregistrer). La vérification au
+  démarrage se coupe dans **Paramètres > Outils externes…**. Chaque version est **signée** : une version dont la
+  signature est absente ou invalide est refusée. Une mise à jour télécharge la version entière (environ 180 Mo). Aucun
+  droit d’administrateur n’est demandé, sauf si l’application est installée dans un dossier protégé comme
+  `C:\Program Files`.
 
 - **Activité Discord** (activée par défaut) : si Discord est ouvert sur le PC, votre profil indique que vous utilisez
   PS4 Theme Creator, ce que vous faites (édition, enregistrement, création du thème…) et le **titre du thème** en
@@ -232,6 +256,8 @@ En bas de la fenêtre : **Effacer** (Icônes de contenu, Icônes de fonction, Fo
 | Problème | Solution |
 |---|---|
 | « Windows a protégé votre ordinateur » | Voir la note **Windows SmartScreen** de l’[installation](#installation). |
+| « Impossible d’enregistrer le projet » | Le message nomme le fichier en cause : un fichier choisi a été déplacé, renommé ou supprimé depuis (ou se trouve sur une clé débranchée), un fichier est ouvert dans un autre programme, ou le dossier du projet est protégé en écriture ou sur un disque plein. Rien n’a changé dans le dossier du projet : rechoisissez le fichier ou retirez-le, puis enregistrez de nouveau, ou enregistrez une copie ailleurs avec **Enregistrer sous…**. |
+| Windows indique que PS4 Theme Creator empêche l’arrêt (« Le projet a des modifications non enregistrées… ») | Choisissez **Annuler** sur cet écran de Windows, puis répondez à la question de l’application (**Enregistrer** ou **Ne pas enregistrer**) : elle se ferme, et vous pouvez relancer l’arrêt. |
 | **Créer le thème** signale un outil introuvable, ou que `LibOrbisPkg.dll` est absente | Un fichier de l’application manque, souvent mis en quarantaine par un antivirus : retéléchargez la dernière version et gardez tous les fichiers de l’archive. Pour un outil, vous pouvez aussi indiquer son emplacement dans **Paramètres > Outils externes…**. |
 | « at9tool.exe » ne démarre pas (code 0xC0000135) | Il lui manque la bibliothèque Visual C++ `vcruntime140.dll` : remettez-la dans `Tools\ATRAC9\` (en retéléchargeant la dernière version) ou installez « Microsoft Visual C++ Redistributable » (x64). |
 | Les outils de Sony ne savent pas lire le chemin du projet (« ★ », « 東京 »…) | Renommez ou déplacez le dossier du projet pour que son chemin n’ait aucun de ces caractères, puis recréez le thème. |
@@ -263,20 +289,16 @@ dans `Documents\PS4 Theme Creator\<nom du thème>\`), avec ses paquets créés d
 ## Crédits et licences
 
 - **PS4 Theme Creator** : Copyright © 2026 INF3C7ONxR7. Tous droits réservés.
-
 - **Polices Inter** (© 2016 The Inter Project Authors) et **JetBrains Mono** (© 2020 The JetBrains Mono Project
   Authors) : sous licence [SIL Open Font License 1.1](https://openfontlicense.org/), embarquées dans l’application ;
   leurs licences sont livrées dans `Licenses\`.
-
 - **Icônes [Lucide](https://lucide.dev/)** (© Lucide Contributors, sous licence [ISC](https://lucide.dev/license) ;
   en partie © Cole Bemis, Feather, sous licence MIT), dessinées par l’application.
-
 - **[LibOrbisPkg](https://github.com/maxton/LibOrbisPkg)** (Copyright © 2018-2020 Maxton) : sous licence
   [GNU LGPL 3.0](https://www.gnu.org/licenses/lgpl-3.0.html), dans une copie adaptée aux thèmes ; elle fabrique et
   vérifie les paquets `.pkg`. Elle reste une bibliothèque distincte (`LibOrbisPkg.dll`), que vous pouvez remplacer par
   une version modifiée ; ses licences, sa notice (origine et modifications) et ses sources sont livrées dans
   `Licenses\LibOrbisPkg\`.
-
 - **[FFmpeg](https://ffmpeg.org/)** (build Windows de [gyan.dev](https://www.gyan.dev/ffmpeg/builds/)) : sous licence
   [GNU GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.html), programme distinct fourni dans `Tools\FFmpeg\` ; sa
   licence et ses notes, avec l’adresse de ses sources, sont livrées dans `Licenses\FFmpeg\`.
@@ -323,7 +345,8 @@ font, font shadow, focus and home, functions and titles overlay colors, with opa
 (**Reset** restores them) · theme title and provider, random **Title ID** (4 letters and 5 digits, for example
 `KQRA48213`), **Content ID** whose last 4 digits (the revision) go up when you build a modified theme again, and
 512 × 512 icon · **Create theme** checks the project, builds the `.pkg` with progress and cancel, checks the package,
-then shows a report · `.ps4theme` projects, each one a folder holding a copy of your files, saved automatically ·
+then shows a report · `.ps4theme` projects, each one a folder holding a copy of your files, saved when you choose
+(Ctrl+S), with a “*” after the theme title while changes are unsaved and an offer to save them before closing ·
 signed automatic updates and Discord activity.
 
 **Install**: download **`ThemeCreatorPS4-win-x64.zip`** (about 180 MB) from the
@@ -334,12 +357,25 @@ executable is not Authenticode-signed, so Windows SmartScreen may show “Window
 **More info**, then **Run anyway**.
 
 **Usage**: create a project (**File > New project**, Ctrl+N: it asks for the theme name and creates its folder in the
-output folder, `Documents\PS4 Theme Creator` by default) or open a `.ps4theme` file (Ctrl+O). The project saves
-itself after every change. Pick the backgrounds and the theme color in the right-hand panel, click or drop images on
+output folder, `Documents\PS4 Theme Creator` by default) or open a `.ps4theme` file (Ctrl+O). Save your changes
+with Ctrl+S (see **Saving**). Pick the backgrounds and the theme color in the right-hand panel, click or drop images on
 the preview, add the music and sound effects, set the colors under the preview and the title, provider, Title ID,
 icon and Content ID at the bottom of the panel, then click **Create theme** (Ctrl+Enter). The package is written to
 `build\pkg\` inside the project folder. **File > Export** saves either preview as a PNG image; **Settings > External
 tools…** lets you use another at9tool, vagconv2 or ffmpeg.
+
+**Saving**: your changes are never saved on their own. **File > Save** (Ctrl+S) writes the project, copies the images
+and sounds chosen or imported since the last save into its folder and removes the copies no longer used; until then
+the project folder stays as last saved, and that is what **Project folder** and **File > Open the project folder**
+show. While the project differs from its last saved version, a “*” follows the theme title shown in the title bar (it
+comes first in the taskbar). Before closing the window, opening or creating another project or installing an update,
+the app offers to save the changes: **Save**, **Don’t save** (the project stays as last saved) or **Cancel**; when
+Windows shuts down, nothing is saved for you and the app holds the shutdown to ask. If saving fails, the message names
+the file at fault and nothing in the project folder changes. **Create theme** saves the project first and does not
+run if the save fails; the built revision is then recorded in the project on its own. **File > Save as…**
+(Ctrl+Shift+S) copies the project under another name with its own identifiers, unsaved changes included, and opens
+the copy; the original stays as last saved. A project from an earlier version of the app is tidied up once when
+opened (its files move into the `sources\` subfolder).
 
 **Installing a theme on the PS4**: you need a PS4 running **GoldHEN** (the package is an unsigned fake PKG) and a USB
 drive formatted as exFAT or FAT32 with an MBR partition table. Copy the `.pkg` to the root of the drive, load GoldHEN,
@@ -350,19 +386,23 @@ Install a theme on the PS4…**). No theme built with LibOrbisPkg has been publi
 
 **Updates**: a few seconds after it opens, the app checks GitHub for a new version (this can be turned off in
 **Settings > External tools…**). When one is found, no window opens: the version badge in the title bar turns blue.
-Click it (or **Settings > Check for updates**, at any time) to see the new version and **Install** it. Every release
-is signed; unsigned or tampered releases are refused. No administrator rights are needed, unless the app is installed
-in a protected folder such as `C:\Program Files`. When the Discord app is running on the same PC, your profile shows
-that you are using PS4 Theme Creator, what you are doing (editing, saving, creating the theme) and the theme title,
-never your file names or paths. This is on by default; turn it off in **Settings > External tools…** (“Show my
-activity on Discord”).
+Click it (or **Settings > Check for updates**, at any time) to see the new version and **Install** it (if the open
+project has unsaved changes, the app first offers to save them). Every release is signed; unsigned or tampered
+releases are refused. No administrator rights are needed, unless the app is installed in a protected folder such as
+`C:\Program Files`. When the Discord app is running on the same PC, your profile shows that you are using PS4 Theme
+Creator, what you are doing (editing, saving, creating the theme) and the theme title, never your file names or
+paths. This is on by default; turn it off in **Settings > External tools…** (“Show my activity on Discord”).
 
 **Troubleshooting**: if **Create theme** reports a missing tool or a missing `LibOrbisPkg.dll`, a file of the app is
 missing (often quarantined by an antivirus): download the latest release again and keep all the files of the
 archive, or set the tool’s location in **Settings > External tools…**. If at9tool.exe does not start (code
 0xC0000135), `vcruntime140.dll` is missing from `Tools\ATRAC9\`: download the latest release again or install the
-“Microsoft Visual C++ Redistributable” (x64). If an update fails, **Open the log** in the update window shows the
-details (`%LocalAppData%\PS4 Theme Creator\Logs\updates.log`).
+“Microsoft Visual C++ Redistributable” (x64). If saving fails, the message names the file at fault (a chosen file
+moved or deleted since, a file open in another program, a write-protected folder…): nothing in the project folder has
+changed; choose the file again or remove it, then save again, or save a copy elsewhere with **Save as…**. If Windows
+says that PS4 Theme Creator is preventing shutdown, click **Cancel** there and answer the app’s question (**Save** or
+**Don’t save**): the app closes and you can shut down again. If an update fails, **Open the log** in the update
+window shows the details (`%LocalAppData%\PS4 Theme Creator\Logs\updates.log`).
 
 **Uninstall**: delete the app folder. You can also delete what it keeps for your Windows account: its settings in
 `HKEY_CURRENT_USER\Software\ThemeCreatorPS4`, the `.ps4theme` file association in
